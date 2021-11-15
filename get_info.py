@@ -88,7 +88,7 @@ def get_info(text):
         big_list_output.append(small_list_output)
         
 
-    module=dict(name=entityinf[0][0])
+    module=dict(name=entityinf[0][1])
     inputports={'name':inputs,'size':size_inputs}
     outputports={'name':outputs,'size':size_outputs}
     states={'presentes_states':list_state,'futures_states':big_list_state,'output':big_list_output}
