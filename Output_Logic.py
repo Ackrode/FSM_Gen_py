@@ -1,6 +1,6 @@
 from get_info import *
 
-module, inputs, outputs, states = get_info("State_Table_2.txt")
+module, inputs, outputs, states = get_info("state_table.txt")
 Output_Logic = []
 f = open("design.sv", 'w')
 Output_Logic.append("// Output logic")
