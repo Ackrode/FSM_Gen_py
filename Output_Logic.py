@@ -1,6 +1,6 @@
 def output_logic(path,inputs, outputs, states):
     Output_Logic = []
-    f = open(path, 'w')
+    f = open(path, 'a')
     Output_Logic.append("// Output logic")
     Output_Logic.append("\talways @(state, " + inputs["name"][2] + ")")
     Output_Logic.append("\t\tbegin")

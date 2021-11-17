@@ -18,14 +18,14 @@ def convert(s):
         else:
             new =new+ x +', '  
     return new
-def next_state(path, inputs=None,states=None):
-    with open(path,'w', encoding='utf-8') as f:    
+def next_state(path, inputs, states):
+    del inputs.get('name')[0]
+    del inputs.get('size')[0]
+    del inputs.get('name')[0]
+    del inputs.get('size')[0]
+    with open(path,'a', encoding='utf-8') as f:    
         design=['']
         #delete first 2 keys of inputs.get('name') dictionary
-        del inputs.get('name')[0]
-        del inputs.get('size')[0]
-        del inputs.get('name')[0]
-        del inputs.get('size')[0]
         n=get_n(inputs)
         design.append('always @(state ,'+convert(inputs.get('name'))+')')
         design.append('\tbegin')
