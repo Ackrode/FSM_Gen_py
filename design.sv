@@ -1,32 +1,42 @@
-// Output logic
-	always @(state, x)
-		begin
-			case(state)
-				A: if(x)
-					y = 1'b1
-				else
-					y = 1'b0
-				B: if(x)
-					y = 1'b0
-				else
-					y = 1'b0
-				C: if(x)
-					y = 1'b1
-				else
-					y = 1'b0
-				D: if(x)
-					y = 1'b0
-				else
-					y = 1'b0
-				E: if(x)
-					y = 1'b1
-				else
-					y = 1'b0
-				F: if(x)
-					y = 1'b0
-				else
-					y = 1'b0
-				default: y = 1'b0;
-			endcase
-		end
-endmodule
+
+always @(state ,x)
+	begin
+		case(state)
+			A:
+				begin
+					if(x==0)
+						next_state<=E;
+					else
+						next_state<=D;
+			B:
+				begin
+					if(x==0)
+						next_state<=F;
+					else
+						next_state<=D;
+			C:
+				begin
+					if(x==0)
+						next_state<=E;
+					else
+						next_state<=B;
+			D:
+				begin
+					if(x==0)
+						next_state<=F;
+					else
+						next_state<=B;
+			E:
+				begin
+					if(x==0)
+						next_state<=C;
+					else
+						next_state<=F;
+			F:
+				begin
+					if(x==0)
+						next_state<=B;
+					else
+						next_state<=C;
+		endcase
+	end

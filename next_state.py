@@ -44,9 +44,13 @@ with open('design.sv','w', encoding='utf-8') as f:
         design.append('\t\t\t'+current_state+':')
         design.append('\t\t\t\tbegin')
         for j in range(0,n+1):
-            design.append ('\t\t\t\t\tif('+convert(inputs.get('name'))+'=='+str(j)+')')
-            design.append('\t\t\t\t\t\tnext_state<='+states.get('futures_states')[i][j]+';')
-        design.append('\t\t\t\tend')
+            #if its the last element of the list
+            if j==n:
+                design.append ('\t\t\t\t\telse')
+                design.append('\t\t\t\t\t\tnext_state<='+states.get('futures_states')[i][j]+';')
+            else:
+                design.append ('\t\t\t\t\tif('+convert(inputs.get('name'))+'=='+str(j)+')')
+                design.append('\t\t\t\t\t\tnext_state<='+states.get('futures_states')[i][j]+';')
         i+=1
     design.append('\t\tendcase')
     design.append('\tend')
