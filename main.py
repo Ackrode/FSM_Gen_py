@@ -6,7 +6,6 @@ import copy
 table='state_table.txt'
 path='design.v'
 module, inputs, outputs, states=get_info(table)
-
 input=copy.deepcopy(inputs)
 get_state(path, module, inputs, outputs, states)
 next_state(path, input, states)
