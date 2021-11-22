@@ -1,7 +1,7 @@
 from get_info import get_info
 from next_state import next_state
 from Output_Logic import output_logic
-from State import get_state
+from state import get_state
 from backbone import backbone
 from stimulus import stimulus
 import copy
