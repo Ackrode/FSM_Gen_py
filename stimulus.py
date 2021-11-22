@@ -66,11 +66,12 @@ def stimulus(module, states):
     testbench_stimulus = []
     f = open(module+"_TB.sv",'a')
     testbench_stimulus.append("$display(\"*********************************************\");")
-    testbench_stimulus.append("$display(clk = 1'b0; reset = 1'b1; #2);")
+    testbench_stimulus.append("clk = 1'b0; reset = 1'b1; #2")
     testbench_stimulus.append("$display(\"clk = %b, reset = %b, x = %b, outp = %b\", clk, reset, x, outp);")
+    testbench_stimulus.append("reset = 1'b0; ")
     for i in range(0,len(x)):
         testbench_stimulus.append("x = 1'b"+str(x[i])+";  #2")
-        testbench_stimulus.append("$display(\"clk = %b, reset = %b, x = %b, outp = %b\", clk, reset, x, outp);")
+        testbench_stimulus.append("$display(\"clk = %b, reset = %b, x = %b, y = %b\", clk, reset, x, y);")
 
     testbench_stimulus.append("$finish;")
     testbench_stimulus.append("end")
