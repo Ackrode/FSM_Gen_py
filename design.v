@@ -1,4 +1,4 @@
-moduleFSM(clk,reset,x,y);
+module FSM (clk,reset,x,y);
 	input [0:0] reset,clk,x;
 	output reg [0:0] y;
    
