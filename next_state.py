@@ -33,15 +33,14 @@ def next_state(path, inputs, states):
         i=0
         for current_state in states.get('presentes_states'):
             design.append('\t\t\t'+current_state+':')
-            design.append('\t\t\t\tbegin')
             for j in range(0,n+1):
                 #if its the last element of the list
                 if j==n:
                     design.append ('\t\t\t\t\telse')
-                    design.append('\t\t\t\t\t\tnext_state<='+states.get('futures_states')[i][j]+';')
+                    design.append('\t\t\t\t\t\tnext_state='+states.get('futures_states')[i][j]+';')
                 else:
                     design.append ('\t\t\t\t\tif('+convert(inputs.get('name'))+'=='+str(j)+')')
-                    design.append('\t\t\t\t\t\tnext_state<='+states.get('futures_states')[i][j]+';')
+                    design.append('\t\t\t\t\t\tnext_state='+states.get('futures_states')[i][j]+';')
             i+=1
         design.append('\t\tendcase')
         design.append('\tend')
