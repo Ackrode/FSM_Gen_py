@@ -34,9 +34,10 @@ def get_state(path, module, inputs, outputs, states):
     ## State register
     Output_Logic.append("\t"+"always @(posedge"+" "+inputs["name"][0]+","+"posedge"+" "+inputs["name"][1]+")")
     Output_Logic.append("\t\t"+"begin")
-    Output_Logic.append("\t\t\t"+"state <="+states["presentes_states"][0]+";")
-    Output_Logic.append("\t\t"+"else")
-    Output_Logic.append("\t\t\t"+"state <= next_state;")
+    Output_Logic.append("\t\t\t"+"if("+inputs["name"][1]+")")
+    Output_Logic.append("\t\t\t\t"+"state <="+states["presentes_states"][0]+";")
+    Output_Logic.append("\t\t\t"+"else")
+    Output_Logic.append("\t\t\t\t"+"state <= next_state;")
     Output_Logic.append("\t\t"+"end")
 
     for line in Output_Logic:
